@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				min-height: 100vh;
+				display: grid;
+				/* 1ch 等于一个 0 的宽度 */
+				/* 1ch = 1个英文 = 1个数字 */
+				/* 2ch = 1个中文 */
+				/* auto-fill;
+            如果容器大小不固定，项目大小固定，可以用auto-fill关键字自动填充； */
+				/* 列 自动填充列，每列为30个字符宽度 */
+				grid-template-columns: repeat(auto-fit, 30ch);
+				place-content: center;
+				/* 每个网格的间距为 5vh */
+				grid-gap: 5vh;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 1rem;
+			}
+
+			#template {
+				background: #fff;
+				padding: 1rem;
+				border-radius: 7px;
+				box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.13);
+				/* height: 25vh; */
+				/* 网格布局 */
+				display: grid;
+				/* grid-gap:20px 20px; */
+				/* row-gap和column-gap简写形式；行间距和列间距 */
+				grid-gap: 0.5rem;
+			}
+
+			.col {
+				background-color: #7B86F5;
+				border-radius: 4px;
+				display: grid;
+				place-items: center;
+				color: #fff;
+				font-size: 1.5rem;
+			}
+
+			.template-2col {
+				/* 重复写值很麻烦，可以用repeate函数；
+　　　　　　　　　repeat(次数，大小)；
+　　　　　　　　　例如：repeat(3,100px);　//重复3次，每次100px；
+            */
+				/* 2列，每列为1等分 */
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.template-3col {
+				/* 3列，每列为1等分 */
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			.template-4col {
+				/* 2行 每行1等分/2列 每列1等分 */
+				grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+			}
+
+			.template-5col {
+				/* 区域划分 2行2列 */
+				grid-template: "sidebar mainA""sidebar mainB";
+				/* 1列最小为100px最大为1等分  2列为1等分*/
+				grid-template-columns: minmax(100px, 1fr) 1fr;
+			}
+
+			.template-5col .left {
+				overflow: hidden;
+				/* 区域划分 left占 sidebar 位*/
+				grid-area: sidebar;
+			}
+
+			.template-5col .left img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.template-6col {
+				grid-template: "mainA sidebar""mainB sidebar";
+			}
+
+			.template-6col .right {
+				grid-area: sidebar;
+			}
+
+			.template-7col {
+				/* 3行 每行1等分/3列 每列1等分 */
+				grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+			}
+
+			.template-8col {
+				/* 3行 每行1等分/3列 每列1等分 */
+				grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+				/* 网格排列方式 默认row:水平排列  column:垂直排列  */
+				grid-auto-flow: column;
+			}
+
+			.template-9col {
+				grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+			}
+
+			.template-9col .col:nth-child(1) {
+				/* 从第1行和第1列开始，跨越1行3列 */
+				grid-area: 1/1/span 1/span 3;
+			}
+
+			.template-9col .col:nth-child(3) {
+				/* 从第2行和第2列开始，跨越2行2列 */
+				grid-area: 2/2/span 2/span 2;
+			}
+
+			.template-9col .col:nth-child(5) {
+				/* 从第1行和第1列开始，跨越1行3列 */
+				grid-area: 4/1/span 2/span 1;
+			}
+
+			/*包含以下五种的链接*/
+			a {
+				text-decoration: none;
+				color: #000000;
+			}
+
+			/*正常的未被访问过的链接*/
+			a:link {
+				text-decoration: none;
+			}
+
+			/*已经访问过的链接*/
+			a:visited {
+				text-decoration: none;
+			}
+
+			/*鼠标划过(停留)的链接*/
+			a:hover {
+				text-decoration: none;
+			}
+
+			/* 正在点击的链接，鼠标在元素上按下还没有松开*/
+			a:active {
+				text-decoration: none;
+			}
+
+			/* 获得焦点的时候 鼠标松开时显示的颜色*/
+			a:focus {
+				text-decoration: none;
+			}
+		</style>
+		<script>
+			function copyToClip(content, index, message) {
+				var aux = document.createElement("input");
+				aux.setAttribute("value", content);
+				document.body.appendChild(aux);
+				aux.select();
+				document.execCommand("copy");
+				document.body.removeChild(aux);
+				if (message == null) {
+					if(index==1){
+					alert("微信号已复制");
+					}else if(index==2){
+						alert("QQ号已复制");
+					}
+				}else{
+					alert("复制失败请重试");
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div id="template" class="template-5col">
+			<div class="col left">
+				<a onclick="copyToClip('605061405',2)"
+					href="mqq://">QQ</a>
+				<!-- <img src="./pexels-pixabay-355747.png" alt=""> -->
+			</div>
+			<div class="col"><a onclick="copyToClip('HiGfyErha',1)" href="weixin://">微信</a></div>
+			<div class="col"><a href="https://y.music.163.com/m/user?id=1345083053">网易云</a></div>
+		</div>
+		<div id="template" class="template-6col">
+			<div class="col right"><a href="https://v.douyin.com/eEesWEj/">抖音</a></div>
+			<div class="col"><a href="https://www.instagram.com/zhang0911yingyu?utm_source=qr">Ins</a></div>
+			<div class="col"><a href="https://qr.alipay.com/a7x09353yvdkgflzqqtpg22">支付宝</a></div>
+		</div>
+<!-- 		<div id="template" class="template-5col">
+			<div class="col"><a href="alipays://platformapi/startapp?appId=2021001136608745">健康码</a>
+				
+			</div>
+			<div class="col"><a onclick="copyToClip('HiGfyErha',1)" href="weixin://">微信</a></div>
+			<div class="col"><a href="https://y.music.163.com/m/user?id=1345083053">网易云</a></div>
+		</div> -->
+		<!-- <script>
+			function popu() {
+				const input = document.createElement('INPUT');
+				input.style.opacity = 0;
+				input.style.position = 'absolute';
+				input.style.left = '-100000px';
+				document.body.appendChild(input);
+				input.value = "asdfadasd";
+				input.select();
+				input.setSelectionRange(0, text.length);
+				document.execCommand('copy');
+				document.body.removeChild(input);
+				return true;
+				alert("asda");
+			}
+		</script> -->
+	</body>
+
+</html>
