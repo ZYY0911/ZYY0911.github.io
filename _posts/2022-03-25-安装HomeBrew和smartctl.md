@@ -102,3 +102,5 @@ brew uninstall smartmontools
 - 3.22 日更新
 
 ![img](https://pic2.zhimg.com/80/v2-3c9257db5d6877bcae21d49fc563d1c1_1440w.jpg)
+
+转载至https://zhuanlan.zhihu.com/p/354385629
