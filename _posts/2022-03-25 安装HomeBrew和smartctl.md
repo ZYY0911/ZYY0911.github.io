@@ -1,3 +1,12 @@
+---
+layout: post
+title: 安装HomeBrew And smartctl
+subtitle: 工具
+categories: markdown
+author: 老八
+categories: zyy
+tags: 工具
+---
 ## 教程
 
 有很多同学问我是怎么查看硬盘写入量的，这个是通过一个叫 smartctl 的应用实现的，使用 M1 Mac 安装 [smartctl](https://link.zhihu.com/?target=https%3A//www.smartmontools.org/) 的时候出现了一些问题，为了避免大家踩坑，我就整理了一下安装流程。
