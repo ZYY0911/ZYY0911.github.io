@@ -55,8 +55,8 @@ yat:
 # sitemap: false
 
 # If you want to change site language, you can set lang option
-#lang: "zh-CN"  
-# default lang is en
+lang: "zh-CN"  
+# default lang is zh-CN
 
 # Translate languges
 # langs refer to https://cloud.google.com/translate/docs/languages
