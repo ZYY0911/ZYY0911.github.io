@@ -179,7 +179,7 @@ night_mode: "auto"
 #   redirect_uri: "Your redirect url"   # If you use a custom domain name
 
 # Build settings
-# highlighter: none
+highlighter: true
 markdown: kramdown
 kmarkdown:
   input: GFM
