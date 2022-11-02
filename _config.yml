@@ -24,17 +24,31 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 一个萌新的学生
-email: zhang0911yingyu@outlook.com
-author: ZYY0911
-copyright: Copyright © 1970-2021
+title: Your awesome title
+email: your-email@domain.com
+author: GitHub User
+
+# Copyright setting
+# You can use any html code, currently below placeholders are available:
+# * current year: {currentYear}
+# * author: {author} (Value is the same as site.author)
+# * copyright: (c) - ©
+# * copyleft: (cleft)
+# * sound recording copyright: (p) - ℗
+#
+# For example:
+#   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
+#   "Copyright © 2017-2021 Foobar"
+#
+copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
+
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://zyy0911.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -46,17 +60,19 @@ yat:
 # debug: false
 
 # If you don't want transparent header, you can set false
-#header_transparent: false
+# header_transparent: true
+
+# If you want to change the content width, you can set to another value
+# content_width: "920px"
 
 # Google analytics
 # google_analytics: [Tracking ID]
 
-# zh-CN
+# If you want to generate website sitemap, you can set true
 # sitemap: false
 
 # If you want to change site language, you can set lang option
-lang: "zh-CN"  
-# default lang is zh-CN
+# lang: "en"  # default lang is en
 
 # Translate languges
 # langs refer to https://cloud.google.com/translate/docs/languages
@@ -118,7 +134,7 @@ lang: "zh-CN"
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 #
-night_mode: "auto"
+# night_mode: "auto"
 
 # Code badge setting
 # You can enable or disable the code badge and so on
@@ -156,7 +172,7 @@ night_mode: "auto"
 #   opacity: 1.0            # Banner opacity (100% is 1.0)
 #   background: "rgba(0, 0, 0, 0.8)"  # Banner background (Could be a image)
 #   height: "640px"         # Banner default height
-#   min_height: null        # Banner minium height
+#   min_height: null        # Banner minimum height
 #   heading_style: null     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
 #   subheading_style: null  # Custom subheading style (e.g. color: gold)
 
@@ -178,8 +194,19 @@ night_mode: "auto"
 #   client_secret: "Your client secret"
 #   redirect_uri: "Your redirect url"   # If you use a custom domain name
 
+# Utterances comments
+# See https://utteranc.es/
+# set follow_site_theme true to make utterances' theme follow the site's
+
+# utterances:
+#   repo: "owner/repo"
+#   issue_term: "title"
+#   label: "utterances comment"
+#   theme: "github-light"
+#   follow_site_theme: true
+
 # Build settings
-highlighter: pygments
+# highlighter: none
 markdown: kramdown
 kmarkdown:
   input: GFM
