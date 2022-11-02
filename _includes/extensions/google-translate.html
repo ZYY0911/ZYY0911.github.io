@@ -1,5 +1,9 @@
-<!-- {% if include.translate_langs %}
+{% if include.translate_langs %}
   {% assign translate_langs = include.translate_langs %}
+{% endif %}
+
+{% if include.lang %}
+  {% assign lang = include.lang %}
 {% endif %}
 
 <div id="google_translate_element" style="display: none;">
@@ -24,10 +28,16 @@
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
-    pageLanguage: 'zh-CN',
+    pageLanguage: '{{ lang }}',
     autoDisplay: false,
     layout: google.translate.TranslateElement.InlineLayout.VERTICAL
   }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
 
   function restoreLang() {
     var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
@@ -96,4 +106,3 @@ function googleTranslateElementInit() {
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- -->
